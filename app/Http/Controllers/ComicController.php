@@ -12,7 +12,9 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.index', [
+            'comics' => comic::all(),
+        ]);
     }
 
     /**
