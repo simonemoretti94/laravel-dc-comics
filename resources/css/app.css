@@ -137,6 +137,13 @@ main {
                                 cursor: pointer;
                                 text-decoration: none;
                             }
+
+                            >a:hover {
+                                font-weight: 400;
+                                color: #0063c6;
+                                text-shadow: 0 0 2px #185897;
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }
