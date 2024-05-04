@@ -19,8 +19,8 @@
             <thead>
                 <tr>
                     <th scope="col">id</th>
-                    <th scope="col">ref_code</th>
-                    <th scope="col">cover_image</th>
+                    <th scope="col">title</th>
+                    <th scope="col">thumb image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
