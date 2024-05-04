@@ -2,7 +2,7 @@
 
     <div id="sup-footer" >
 
-            <div class="container d-flex justify-content-between ">
+            <div id="wrapper_container" class="container d-flex justify-content-between ">
                 <div class="wrapper">
                     <img src="{{ Vite::asset('resources/images/buy-comics-digital-comics.png') }}" alt="buy-digital-comics">
                     <a>digital comics</a>
