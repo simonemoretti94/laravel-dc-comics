@@ -22,14 +22,14 @@ index
                 <div id="col-wrapper" class="">
                     <div id="col-img" class="">
                         <img
-                            src="{{$comic['thumb']}}"
+                            src="{{$comic->thumb}}"
                             class="img-fluid rounded-top"
-                            alt="{{$comic['title']}}"
+                            alt="{{$comic->title}}"
                         />  
                     </div>
                     {{-- test commit --}}
                     <div id="col-title" class="">
-                        <p><a href="{{route('comics.show' , $comic)}}">{{$comic['title']}}</a></p>
+                        <p><a href="{{route('comics.show' , $comic)}}">{{$comic->title}}</a></p>
                         {{-- <p><a href="#">{{$comic['title']}}</a></p> --}}
                     </div>
                 </div>
