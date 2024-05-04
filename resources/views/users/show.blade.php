@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container">
+    {{-- <h1 class="text-primary text-center">{{Route::currentRouteName()}}</h1> --}}
     <h1 class="text-primary text-center">{{$comic['title']}}</h1>
     <p id="p-img" class="mt-2 text-center" ><img src="{{$comic['thumb']}}" alt="{{$comic['title']}}"></p>
 </div>
