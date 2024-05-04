@@ -47,8 +47,7 @@ header {
             flex-direction: row;
             justify-content: space-evenly;
 
-            & a,
-            li {
+            & a#head {
                 text-decoration: none;
                 color: var(--main-dark);
                 text-transform: uppercase;
