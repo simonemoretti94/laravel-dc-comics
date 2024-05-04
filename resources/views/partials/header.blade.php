@@ -2,8 +2,8 @@
     <div class="container d-flex justify-content-between align-items-center">
         <a href="/"><img id="logo" src="{{ Vite::asset('resources/images/dc-logo.png') }}" alt="logo" /></a>
         <ul>
-            <a href="/"><strong><i>Home</i></strong></a>
-            <a href="#">json</a>
+            <a href="/" class="{{Route::currentRouteName('index') ? 'd-none' : 'd-block'}}"><strong><i>Home</i></strong></a>
+            <a href="{{route('json-api')}}">json</a>
             <a href="#">comic</a>
             <a href="#">comics</a>
             <a href="#">movies</a>

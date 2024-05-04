@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1 class="p-3 bg-dark text-white">Create a new property</h1>
+<h1 class="p-3 bg-dark text-white ">Create a new property</h1>
 <div class="container py-5">
 
 
