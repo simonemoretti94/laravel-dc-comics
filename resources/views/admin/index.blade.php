@@ -33,6 +33,7 @@
                     <td><img width="100" src="{{$comic->thumb}}" alt=""></td>
                     <td>
                         <a href="{{route('comics.show', $comic)}}">View</a>
+                        <a href="{{route('comics.edit', $comic)}}">Edit</a>
                     </td>
                 </tr>
 
