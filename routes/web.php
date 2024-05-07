@@ -15,3 +15,6 @@ Route::get('/json', function () {
 })->name('json-api');
 
 Route::resource('comics', ComicController::class);
+
+/* test edit */
+Route::get('/admin/edit/{comic}/edit', [ComicController::class, 'edit'])->name('admin.edit');

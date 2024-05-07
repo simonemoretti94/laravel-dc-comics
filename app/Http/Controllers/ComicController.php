@@ -55,7 +55,12 @@ class ComicController extends Controller
      */
     public function edit(comic $comic)
     {
-        //
+
+        //dd($comic);
+
+        return view('admin.edit', [
+            'comic' => $comic,
+        ]);
     }
 
     /**

@@ -6,7 +6,7 @@
             <a id="head" href="{{route('comics.index')}}" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">admin</a>
             <a id="head" href="{{route('comics.create')}}" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">create</a>
             <a id="head" href="{{route('json-api')}}" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">json</a>
-            <a id="head" href="#" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">movies</a>
+            <a id="head" href="{{route('comics.edit' , $comic)}}" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">edit</a>
             <a id="head" href="#" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">tv</a>
             <a id="head" href="#" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">games</a>
             <a id="head" href="#" class="{{Route::currentRouteName() == 'comics.show' ? 'd-none' : 'd-block'}}">collectibles</a>
