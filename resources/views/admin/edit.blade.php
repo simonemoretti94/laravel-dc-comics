@@ -8,7 +8,7 @@
 
 <h1 class="p-3 bg-dark text-white">Edit property</h1>
 <div class="container py-5">
-<form action="{{route('comics.store')}}" method="post">
+<form action="{{route('comics.update' , $comic)}}" method="post">
     @csrf
 
     @method('PUT')
@@ -27,10 +27,15 @@
         </div>
 
         {{-- thumbnail path --}}
-        <div class="mb-3">
-            <label for="thumb" class="form-label">Thumb</label>
-            <input type="text" class="form-control" name="thumb" id="thumb" aria-describedby="thumbHelper" placeholder="thumb path" value="{{$comic->thumb}}" />
-            <small id="thumbHelper" class="form-text text-muted">Type a path</small>
+        <div class="mb-3 d-flex">
+            <div class="col-3">
+            <img class="w-100 border border-1 rounded rounded-2 p-2" style="height: 200px;" src="{{$comic->thumb}}" alt="{{$comic->title}}">
+            </div>
+            <div class="col-9">
+                <label for="thumb" class="form-label">Thumb</label>
+                <input type="text" class="form-control" name="thumb" id="thumb" aria-describedby="thumbHelper" placeholder="thumb path" value="{{$comic->thumb}}" />
+                <small id="thumbHelper" class="form-text text-muted">Type a path</small>
+            </div>
         </div>
 
         {{-- price --}}
@@ -63,7 +68,7 @@
 
 
 
-        <button type="submit" class="btn btn-dark">Create</button>
+        <button type="submit" class="btn btn-dark">Edit</button>
 
 
 </form>
