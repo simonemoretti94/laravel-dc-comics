@@ -18,7 +18,7 @@ index
     {{-- <span id="absolute" >current series</span> --}}
     <div id="cards-row" class="row">
         @foreach ($comics as $comic)
-            <div id="col" class="col-sm-6 col-md-4 col-lg-2 col-xl-3 col-xxl-3 ">
+            <div id="col" class="col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ">
                 <div id="col-wrapper" class="">
                     <div id="col-img" class="">
                         <img
