@@ -31,7 +31,7 @@
             <div class="col-3">
             <img class="w-100 border border-1 rounded rounded-2 p-2" style="height: 200px;" src="{{$comic->thumb}}" alt="{{$comic->title}}">
             </div>
-            <div class="col-9">
+            <div class="col-9 px-2">
                 <label for="thumb" class="form-label">Thumb</label>
                 <input type="text" class="form-control" name="thumb" id="thumb" aria-describedby="thumbHelper" placeholder="thumb path" value="{{$comic->thumb}}" />
                 <small id="thumbHelper" class="form-text text-muted">Type a path</small>
