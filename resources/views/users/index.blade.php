@@ -10,7 +10,7 @@ index
 
 @section('content')
 
-<div id="jumbotron" >
+<div id="jumbotron">
 </div>
 
 <div id="cards-container" class="container" >
