@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('title')
-{{$comic['title']}}
+{{$comic->title}}
 @endsection
 
 @section('content')
 <div class="container" style="padding-top: 5rem;">
     {{-- <h1 class="text-primary text-center">{{Route::currentRouteName()}}</h1> --}}
-    <h1 class="text-primary text-center">{{$comic['title']}}</h1>
-    <p id="p-img" class="mt-2 text-center" ><img src="{{$comic['thumb']}}" alt="{{$comic['title']}}"></p>
+    <h1 class="text-primary text-center">{{$comic->title}}</h1>
+    <p id="p-img" class="mt-2 text-center" ><img src="{{$comic['thumb']}}" alt="{{$comic->title}}"></p>
+    <p class="text-center my-3 p-2 border border-1">{{$comic->description}}</p>
 </div>
 @endsection
 
