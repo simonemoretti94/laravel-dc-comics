@@ -35,7 +35,7 @@
                 <p class="border-p">
                     <span>
                         <b>
-                        Sale_date: 
+                        Sale date: 
                         </b>
                     </span>
                     {{$comic->sale_date}}
