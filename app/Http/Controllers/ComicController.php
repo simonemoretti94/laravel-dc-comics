@@ -33,11 +33,10 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        //$data = $request->all();
+        Comic::create($request->all());
 
-        Comic::create($data);
-
-        return to_route('comics.create');
+        return to_route('comics.index');
     }
 
     /**
@@ -54,7 +53,7 @@ class ComicController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form in order to edit the specified resource.
      */
     public function edit(Comic $comic)
     {
@@ -82,6 +81,9 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        //dd($comic);
+        $comic->delete();
+
+        return to_route('comics.index');
     }
 }
