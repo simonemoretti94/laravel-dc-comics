@@ -4,8 +4,17 @@
 
 @section('h1-content' , 'Edit a comic')
 
+@section('form-head')
+
+
+    <form action="{{route("comics.update" , $comic)}}" method="post">
+
+@endsection
+
 @section('method')
 
 @method('PUT')
 
 @endsection
+
+@section('button' , 'Edit')

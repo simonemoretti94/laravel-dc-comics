@@ -25,9 +25,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('admin.create', [
-            'route' => 'comics.store',
-        ]);
+        return view('admin.create');
     }
 
     /**
@@ -78,7 +76,6 @@ class ComicController extends Controller
 
         return view('admin.edit', [
             'comic' => $comic,
-            'route' => 'comics.update',
         ]);
     }
 
