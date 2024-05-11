@@ -75,9 +75,12 @@
 
             .border-p {
                 width: 40%;
-                border-bottom: solid 1px black;
+                border-bottom: solid 1.5px black;
+                border-left: solid 1.5px black;
                 padding-bottom: .5rem;
+                padding-left: .2rem;
                 font-size: medium;
+                box-shadow: -1px 3px black;
             }
 
             p#p_description {
