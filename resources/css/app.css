@@ -106,15 +106,22 @@ main {
 
             /* height: 100px; */
             & div#col {
-                padding: 1rem;
+                padding: 1rem 1.5rem;
                 height: 200px;
+
+                @media screen and (max-width: 1200px) {
+                    /* width: calc(100% / 2); */
+                    padding: .5rem .8rem;
+                }
 
                 @media screen and (max-width: 576px) {
                     width: calc(100% / 2);
+                    padding: 0.5rem 1rem;
                 }
 
                 @media screen and (max-width: 340px) {
                     width: 100%;
+                    padding: 0.5rem 2rem;
                 }
 
                 >div#col-wrapper {
