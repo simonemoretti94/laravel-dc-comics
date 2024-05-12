@@ -27,10 +27,10 @@
             <tbody>
                 @forelse ($comics as $comic )
 
-                <tr class="">
+                <tr id=content_row>
                     <td scope="row">{{$comic->id}}</td>
                     <td>{{$comic->title ?? 'N/A'}}</td>
-                    <td><img width="100" src="{{$comic->thumb}}" alt=""></td>
+                    <td><img id="thumb_img" src="{{$comic->thumb}}" alt=""></td>
                     <td>
                         <div class="w-50 h-100 d-flex flex-column justify-content-evenly ">
                         <button class="btn btn-primary my-1">
@@ -121,7 +121,27 @@
 
     {{$comics->links('pagination::bootstrap-5')}}
 
+<style>
+tr#content_row {
+    height: 150px;
 
+    & td:nth-child(3){
+        height: 100%;
+        > img#thumb_img {
+            width: 130px;
+            height: 150px;
+            filter: saturate(1.2);
+            border: solid .5px white;
+            border-radius: 2px;
+            padding: .2rem;
+        }
+
+        > img#thumb_img:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+</style>
 
 
 </div>
