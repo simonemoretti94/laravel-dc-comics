@@ -87,6 +87,7 @@ main {
         & div#cards-row {
             margin: 1rem auto 2rem auto;
             position: relative;
+            justify-content: center;
 
             >span#absolute {
                 width: 120px;
