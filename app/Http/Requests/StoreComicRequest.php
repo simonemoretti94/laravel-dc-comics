@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class StoreComicRequest extends FormRequest
 {
@@ -21,11 +22,17 @@ class StoreComicRequest extends FormRequest
      */
     public function rules(): array
     {
+        if (Str::startsWith($this->thumb, 'https://')) {
+            $validation = 'url';
+        } else {
+            $validation = 'image|max:500';
+        }
+
         return [
             'title' => 'required|min:8|max:100',
             'description' => 'required|min:40|max:2000',
-            //'thumb' => 'required|url',
-            'thumb' => 'required|image|max:500',
+            //'thumb' => 'required|image|max:500',
+            'thumb' => 'required|'.$validation,
             'price' => 'nullable|numeric',
             'series' => 'nullable|min:5|max:30',
             'sale_date' => 'nullable',
