@@ -49,7 +49,7 @@
         </div>
 
         {{-- thumbnail path --}}
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="thumb" class="form-label">Thumb</label>
             <input type="text" class="form-control @error('thumb')
                 is-invalid
@@ -62,7 +62,21 @@
             {{$message}}
             </div>
             @enderror
+        </div> --}}
+
+        {{-- copied storage thumb start --}}
+
+        <div class="form-group mb-3">
+            <label for="thumb"></label>
+            <input class="form-control" type="file" name="thumb" id="thumb">
         </div>
+        @error('thumb')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+        {{-- copied storage thumb end --}}
+
+        
 
         {{-- price --}}
         <div class="mb-3">

@@ -30,7 +30,16 @@
                 <tr id=content_row>
                     <td scope="row">{{$comic->id}}</td>
                     <td>{{$comic->title ?? 'N/A'}}</td>
-                    <td><img id="thumb_img" src="{{$comic->thumb}}" alt=""></td>
+                    <td>
+
+                    @if(Str::startsWith($comic->thumb , 'https://'))
+                        <img id="thumb_img" src="{{$comic->thumb}}" alt="{{$comic->title}}">
+                    @else
+                        <img id="thumb_img" src="{{asset('storage/' . $comic->thumb)}}" alt="{{$comic->title}}">
+                    @endif
+
+                    </td>
+                    {{-- <td><img id="thumb_img" src="{{$comic->thumb}}" alt=""></td> --}}
                     <td>
                         <div class="w-50 h-100 d-flex flex-column justify-content-evenly ">
                         <button class="btn btn-primary my-1">

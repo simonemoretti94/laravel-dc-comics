@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreComicRequest;
 use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
+use Illuminate\Support\Facades\Storage;
 
 class ComicController extends Controller
 {
@@ -34,23 +35,18 @@ class ComicController extends Controller
      */
     public function store(StoreComicRequest $request)
     {
-        //$data = $request->all();
+        /**
+         * validated into App\Http\Requests\StoreProjectRequest
+         */
+        $val_data = $request->validated(); // istead of validate() 'cause they were validated into StoreComicRequest
 
         /**
-         * validating data
+         * saving img into uploads folder
          */
-        // $val_data = $request->validate([
-        //     'title' => 'required|min:8|max:100',
-        //     'description' => 'required|min:40|max:2000',
-        //     'thumb' => 'required|url',
-        //     'price' => 'nullable|numeric',
-        //     'series' => 'nullable|min:5|max:30',
-        //     'sale_date' => 'nullable',
-        //     'type' => 'nullable|min:5|max:30',
-        // ]);
-        $val_data = $request->validated();
+        $img_path = Storage::put('uploads', $request->thumb); //in case of img uploaded
+        $val_data['thumb'] = $img_path;
 
-        Comic::create($request->all());
+        Comic::create($val_data);
 
         return redirect('/comics')->with('message', 'Comic creation succeeded');
     }
@@ -86,17 +82,21 @@ class ComicController extends Controller
      */
     public function update(UpdateComicRequest $request, Comic $comic)
     {
-        //dd($request->all(), $comic);
-        // $val_data = $request->validate([
-        //     'title' => 'required|min:10|max:100',
-        //     'description' => 'required|min:40|max:2000',
-        //     'thumb' => 'required|url',
-        //     'price' => 'nullable|numeric',
-        //     'series' => 'nullable|min:5|max:30',
-        //     'sale_date' => 'nullable',
-        //     'type' => 'nullable|min:5|max:30',
-        // ]);
         $val_data = $request->validated();
+
+        if ($request->has('thumb')) {
+            /**
+             * checking if current post has a thumb
+             */
+            if ($comic->thumb) {
+                //if so delete it
+                Storage::delete($comic->thumb);
+            }
+
+            //uploading a new image
+            $img_path = Storage::put('uploads', $request->thumb);
+            $val_data['thumb'] = $img_path;
+        }
 
         $comic->update($val_data);
 
