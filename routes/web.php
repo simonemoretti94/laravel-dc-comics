@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ComicController;
+use App\Http\Controllers\ComicController as AdminComicController;
 use App\Models\comic;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +14,7 @@ Route::get('/json', function () {
     return comic::all();
 })->name('json-api');
 
-Route::resource('comics', ComicController::class);
+Route::resource('comics', AdminComicController::class);
 
 /* test edit */
-Route::get('/admin/edit/{comic}/edit', [ComicController::class, 'edit'])->name('admin.edit');
+Route::get('/admin/edit/{comic}/edit', [AdminComicController::class, 'edit'])->name('admin.edit');

@@ -7,7 +7,7 @@
 @section('form-head')
 
 
-    <form action="{{route("comics.update" , $comic)}}" method="post">
+    <form action="{{route("comics.update" , $comic)}}" method="post" enctype="multipart/form-data">
 
 @endsection
 

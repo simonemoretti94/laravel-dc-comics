@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
-use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
@@ -31,26 +32,27 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         //$data = $request->all();
 
         /**
          * validating data
          */
-        $val_data = $request->validate([
-            'title' => 'required|min:8|max:100',
-            'description' => 'required|min:40|max:2000',
-            'thumb' => 'required|url',
-            'price' => 'nullable|numeric',
-            'series' => 'nullable|min:5|max:30',
-            'sale_date' => 'nullable',
-            'type' => 'nullable|min:5|max:30',
-        ]);
+        // $val_data = $request->validate([
+        //     'title' => 'required|min:8|max:100',
+        //     'description' => 'required|min:40|max:2000',
+        //     'thumb' => 'required|url',
+        //     'price' => 'nullable|numeric',
+        //     'series' => 'nullable|min:5|max:30',
+        //     'sale_date' => 'nullable',
+        //     'type' => 'nullable|min:5|max:30',
+        // ]);
+        $val_data = $request->validated();
 
         Comic::create($request->all());
 
-        return to_route('comics.index');
+        return redirect('/comics')->with('message', 'Comic creation succeeded');
     }
 
     /**
@@ -82,22 +84,23 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         //dd($request->all(), $comic);
-        $val_data = $request->validate([
-            'title' => 'required|min:10|max:100',
-            'description' => 'required|min:40|max:2000',
-            'thumb' => 'required|url',
-            'price' => 'nullable|numeric',
-            'series' => 'nullable|min:5|max:30',
-            'sale_date' => 'nullable',
-            'type' => 'nullable|min:5|max:30',
-        ]);
+        // $val_data = $request->validate([
+        //     'title' => 'required|min:10|max:100',
+        //     'description' => 'required|min:40|max:2000',
+        //     'thumb' => 'required|url',
+        //     'price' => 'nullable|numeric',
+        //     'series' => 'nullable|min:5|max:30',
+        //     'sale_date' => 'nullable',
+        //     'type' => 'nullable|min:5|max:30',
+        // ]);
+        $val_data = $request->validated();
 
-        $comic->update($request->all());
+        $comic->update($val_data);
 
-        return to_route('comics.index');
+        return redirect('/comics')->with('message', 'Comic edit succeeded');
     }
 
     /**
