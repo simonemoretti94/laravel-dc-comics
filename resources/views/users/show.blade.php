@@ -11,7 +11,12 @@
     <div class="container">
         <div id="show_row" class="row">
             <div class="col-6 d-flex justify-content-end">
-                <img width="200" height="300" src="{{$comic['thumb']}}" alt="{{$comic->title}}">
+                {{-- <img width="200" height="300" src="{{$comic['thumb']}}" alt="{{$comic->title}}"> --}}
+                @if(Str::startsWith($comic->thumb , 'https://'))
+                <img id="thumb_img" src="{{$comic->thumb}}" alt="{{$comic->title}}" class="img-fluid rounded-top"  width="200" height="300" >
+                @else
+                    <img id="thumb_img" src="{{asset('storage/' . $comic->thumb)}}" alt="{{$comic->title}}" class="img-fluid rounded-top"  width="200" height="300" >
+                @endif
             </div>
             <div class="col-6">
                 <p class="border-p">
