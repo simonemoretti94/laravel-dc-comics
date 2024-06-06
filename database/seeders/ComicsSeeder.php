@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Comic as ComicModel;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ComicsSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class ComicsSeeder extends Seeder
         $newcomic->series = $comic['series'];
         $newcomic->sale_date = $comic['sale_date'];
         $newcomic->type = $comic['type'];
+        $newcomic->slug = Str::slug($comic['title'], '-');
         $newcomic->save();
         // }
         // now config\comics returns only one element
