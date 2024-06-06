@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreComicRequest;
 use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ComicController extends Controller
@@ -27,7 +28,9 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('admin.create' , [
+            'types' => Type::all(),
+        ]);
     }
 
     /**
@@ -35,18 +38,26 @@ class ComicController extends Controller
      */
     public function store(StoreComicRequest $request)
     {
+        //dd($request);
         /**
          * validated into App\Http\Requests\StoreProjectRequest
          */
         $val_data = $request->validated(); // istead of validate() 'cause they were validated into StoreComicRequest
 
+        
+        
         /**
          * saving img into uploads folder
          */
         $img_path = Storage::put('uploads', $request->thumb); //in case of img uploaded
         $val_data['thumb'] = $img_path;
-
-        Comic::create($val_data);
+        
+        $newComic = Comic::create($val_data);
+        if($request->has('types'))
+        {
+            $newComic->types()->attach($request['types']);
+        }
+        //dd($newComic);
 
         return redirect('/comics')->with('message', 'Comic creation succeeded');
     }
