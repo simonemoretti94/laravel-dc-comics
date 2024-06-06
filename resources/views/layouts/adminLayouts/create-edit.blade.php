@@ -124,6 +124,7 @@
 
     {{-- second type from model --}}
     <div class="mb-3 d-flex flex-wrap">
+
         <h6 class="w-100">Types</h6><br>
         @foreach ($types as $type)
 
