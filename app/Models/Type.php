@@ -4,27 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Type;
+use App\Models\Comic;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Comic extends Model
+class Type extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
-        'thumb',
-        'price',
-        'series',
-        'sale_date',
-        'type',
+        'name',
         'slug',
     ];
 
-    public function types(): BelongsToMany
+    public function comics(): BelongsToMany
     {
-        return $this->belongsToMany(Type::class);
+        return $this->belongsToMany(Comic::class);
     }
-
 }

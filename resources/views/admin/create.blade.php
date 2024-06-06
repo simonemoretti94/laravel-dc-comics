@@ -6,7 +6,6 @@
 
 @section('form-head')
 
-
     <form action="{{route("comics.store")}}" method="post" enctype="multipart/form-data">
 
 @endsection

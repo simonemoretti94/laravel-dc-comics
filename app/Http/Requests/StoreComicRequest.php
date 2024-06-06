@@ -25,7 +25,7 @@ class StoreComicRequest extends FormRequest
         if (Str::startsWith($this->thumb, 'https://')) {
             $validation = 'url';
         } else {
-            $validation = 'image|max:500';
+            $validation = 'image|max:1024';
         }
 
         return [
