@@ -10,10 +10,6 @@ Route::get('/', function () {
     ]);
 })->name('index');
 
-Route::get('/json', function () {
-    return comic::all();
-})->name('json-api');
-
 Route::resource('comics', AdminComicController::class);
 
 /* test edit */

@@ -15,9 +15,6 @@ class ComicController extends Controller
      */
     public function index()
     {
-        // return view('admin.index', [
-        //     'comics' => Comic::all(),
-        // ]);
         return view('admin.index', [
             'comics' => Comic::orderByDesc('id')->paginate(4),
         ]);
@@ -67,9 +64,6 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-
-        //dd(Comic::find($comic));
-
         return view('users.show', [
             'comic' => $comic,
         ]);
@@ -80,9 +74,6 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-
-        //dd($comic);
-
         return view('admin.edit', [
             'comic' => $comic,
         ]);
