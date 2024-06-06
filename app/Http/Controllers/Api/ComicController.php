@@ -12,13 +12,13 @@ class ComicController extends Controller
         $allComics = Comic::orderByDesc('id')->paginate();
 
         if($allComics){
-            return request()->json([
+            return response()->json([
                 'success' => true,
                 'results' => $allComics,
             ], 200);
         }
         else {
-            return request()->json([
+            return response()->json([
                 'success' => false,
                 'results' => '404 content not found',
             ], 404);
@@ -29,13 +29,13 @@ class ComicController extends Controller
     public function show ($id){
         $showItem = Comic::find($id);
         if($showItem){
-            return request()->json([
+            return response()->json([
                 'success' => true,
                 'results' => $showItem,
             ], 200);
         }
         else {
-            return request()->json([
+            return response()->json([
                 'success' => false,
                 'results' => '404 content not found',
             ], 404);
