@@ -48,7 +48,7 @@
                     {{$comic->sale_date}}
                 </p>
 
-                @if($comic->types)
+                @if(count($comic->types) > 0)
                 <p class="border-p">
                     <span>
                         <b>
@@ -64,6 +64,7 @@
                     @endforeach
                 </p>
                 @else
+                @if($comic->type)
                 <p class="border-p">
                     <span>
                         <b>
@@ -72,6 +73,7 @@
                     </span>
                     {{$comic->type}}
                 </p>
+                @endif
                 @endif
             </div>
             <style>
